@@ -51,6 +51,17 @@ module Chatwoot
     enterprise_initializers = Rails.root.join('enterprise/config/initializers')
     Dir[enterprise_initializers.join('**/*.rb')].each { |f| require f } if enterprise_initializers.exist?
 
+    # Load Beet custom extension from submodule
+    custom_root = Rails.root.join('beet-digital-apps/beet-digital-extension')
+    config.eager_load_paths << custom_root.join('lib')
+    config.eager_load_paths << custom_root.join('listeners')
+    # rubocop:disable Rails/FilePath
+    config.eager_load_paths += Dir["#{custom_root}/app/**"]
+    # rubocop:enable Rails/FilePath
+    config.paths['app/views'].unshift(custom_root.join('app/views').to_s)
+    custom_initializers = custom_root.join('config/initializers')
+    Dir[custom_initializers.join('**/*.rb')].each { |f| require f } if custom_initializers.exist?
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

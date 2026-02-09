@@ -1,3 +1,3 @@
 [submodule "beet-digital-apps"]
 	path = beet-digital-apps
-	url = https://github.com/Beedataco/beet-digital-apps.git
+	url = git@github-work:Beedataco/beet-digital-apps.git
