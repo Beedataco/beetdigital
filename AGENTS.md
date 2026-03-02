@@ -1,5 +1,12 @@
 # Chatwoot Development Guidelines
 
+## Repository Context (Important)
+
+- This workspace is the fork at `Beedataco/beetdigital` (path: `/Beedataco/beetdigital`).
+- Use `origin` for all pushes and PRs; `upstream` (chatwoot/chatwoot) is read-only for reference.
+- Do not run automation or create actions against `chatwoot/chatwoot` from this workspace.
+- When documentation mentions the default repo, it always means `Beedataco/beetdigital`.
+
 ## Build / Test / Lint
 
 - **Setup**: `bundle install && pnpm install`

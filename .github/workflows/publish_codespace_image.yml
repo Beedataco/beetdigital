@@ -4,20 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  publish-code-space-image:
+  publish-disabled:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Login to GitHub Container Registry
-      uses: docker/login-action@v1
-      with:
-        registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Build the Codespace Base Image
-      run: |
-        docker compose -f .devcontainer/docker-compose.base.yml build base
-        docker push ghcr.io/chatwoot/chatwoot_codespace:latest
+      - name: Publishing disabled in public repo
+        run: echo "Codespace image publishing moved to private release workflows."
